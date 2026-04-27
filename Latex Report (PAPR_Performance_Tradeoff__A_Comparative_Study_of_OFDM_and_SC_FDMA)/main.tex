@@ -1,0 +1,181 @@
+%============================================================%
+%  Wireless Communication Course Report Template
+%  Refactored by Minh Nguyen Do Hoang
+%  Based on the original template adapted by
+%  Trang Nguyen Minh and Hanh Nguyen Hong
+%  (BKIC Laboratory)
+%============================================================%
+
+\documentclass{article}
+
+%======================== ENCODING ==========================%
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+
+%======================== PAGE LAYOUT =======================%
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[
+    paperheight=29.7cm,
+    paperwidth=21cm,
+    left=3cm,
+    right=2cm,
+    top=2cm,
+    bottom=2.5cm
+]{geometry}
+
+%======================== FONT ==============================%
+\usepackage{mathptmx}
+
+%======================== GRAPHICS ==========================%
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+%======================== TEXT FORMAT =======================%
+\usepackage{indentfirst}
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+%======================== SECTION STYLE =====================%
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+
+\titlespacing*{\section}{0pt}{0pt}{24pt}
+\titleformat*{\section}
+{\fontsize{16pt}{19pt}\selectfont\bfseries\centering}
+
+\titlespacing*{\subsection}{0pt}{10pt}{0pt}
+\titleformat*{\subsection}
+{\fontsize{14pt}{17pt}\selectfont\bfseries}
+
+\titlespacing*{\subsubsection}{0pt}{10pt}{0pt}
+\titleformat*{\subsubsection}
+{\fontsize{13pt}{16pt}\selectfont\bfseries\itshape}
+
+\titlespacing*{\paragraph}{0pt}{10pt}{0pt}
+\titleformat*{\paragraph}
+{\fontsize{13pt}{16pt}\selectfont\itshape}
+
+%======================== TABLES ============================%
+\usepackage{multicol,multirow,tabularx,array}
+
+\newcolumntype{s}{>{\hsize=.3\hsize}X}
+\newcolumntype{y}{>{\hsize=.4\hsize}X}
+\newcolumntype{d}{>{\hsize=.1\hsize}X}
+\newcolumntype{a}{>{\hsize=1.1\hsize}X}
+\newcolumntype{g}{>{\hsize=5\hsize}X}
+
+\newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}
+
+\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%======================== CAPTIONS ==========================%
+\usepackage[font=bf]{caption}
+
+\renewcommand{\figurename}{\fontsize{12pt}{0pt}\selectfont\bfseries Figure}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\captionsetup[figure]{labelsep=space}
+
+\renewcommand{\tablename}{\fontsize{12pt}{0pt}\selectfont\bfseries Table}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\captionsetup[table]{labelsep=space}
+
+%======================== MATH ==============================%
+\usepackage{amsmath,amssymb,bm,amsthm}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\DeclareRobustCommand{\vect}[1]{\bm{#1}}
+
+%======================== TOC NAMES =========================%
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\renewcommand{\refname}{REFERENCES}
+
+%======================== UTILITIES =========================%
+\usepackage[unicode]{hyperref}
+\usepackage{bookmark}
+\usepackage{nameref}
+\usepackage{rotating}
+\usepackage{colortbl}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+\hypersetup{
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    colorlinks=false
+}
+
+%============================================================%
+\begin{document}
+
+%======================== FRONT MATTER ======================%
+\input{Cover page}
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+\input{Abbreviations}
+
+%------------------------ List of Figures -------------------%
+{\let\oldnumberline\numberline
+\renewcommand{\numberline}{Figure~\oldnumberline}
+\listoffigures}
+\phantomsection
+\addcontentsline{toc}{section}{\numberline{}LIST OF FIGURES}
+\clearpage
+
+%------------------------ List of Tables --------------------%
+{\let\oldnumberline\numberline
+\renewcommand{\numberline}{Table~\oldnumberline}
+\listoftables}
+\phantomsection
+\addcontentsline{toc}{section}{\numberline{}LIST OF TABLES}
+\clearpage
+
+\input{Abstract}
+
+%======================== MAIN CONTENT ======================%
+\pagenumbering{arabic}
+
+\input{Chapter 1}
+\clearpage
+
+\input{Chapter 2}
+\clearpage
+
+\input{Chapter 3}
+\clearpage
+
+\input{Chapter 4}
+\clearpage
+
+%======================== REFERENCES ========================%
+\phantomsection
+\addcontentsline{toc}{section}{\numberline{}REFERENCES}
+
+\begin{thebibliography}{99}
+
+\bibitem{hanzo2004}
+L. Hanzo, M. Münster, B. J. Choi, and T. Keller,
+\textit{OFDM and MC-CDMA for Broadband Multi-User Communications, WLANs and Broadcasting},
+John Wiley \& Sons, 2004.
+
+\bibitem{b2}
+Replace with actual reference 2.
+
+\end{thebibliography}
+
+\end{document}

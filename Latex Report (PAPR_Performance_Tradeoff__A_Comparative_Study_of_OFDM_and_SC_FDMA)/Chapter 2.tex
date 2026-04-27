@@ -1,0 +1,172 @@
+\section*{CHAPTER 2. THEORETICAL BACKGROUND}
+\addcontentsline{toc}{section}{\numberline{}CHAPTER 2. THEORETICAL BACKGROUND}
+
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+
+%============================================================%
+\subsection{Overview of Multicarrier Transmission}
+
+Modern broadband wireless systems must combat multipath fading \cite{hanzo2004},
+inter-symbol interference (ISI), and limited spectrum resources.
+Instead of transmitting all data on a single wideband carrier,
+multicarrier systems divide the available bandwidth into many narrowband
+subcarriers operating in parallel.
+
+This approach offers two major advantages:
+
+\begin{itemize}
+    \item Each subcarrier experiences nearly flat fading.
+    \item Equalization complexity is significantly reduced.
+\end{itemize}
+
+Orthogonal Frequency Division Multiplexing (OFDM) is the most successful
+multicarrier implementation and serves as the foundation for many modern
+communication standards.
+
+%============================================================%
+\subsection{Orthogonal Frequency Division Multiplexing (OFDM)}
+
+In OFDM, the input bit stream is first grouped and mapped into complex
+symbols using modulation schemes such as QPSK or QAM. These symbols are
+then assigned to multiple orthogonal subcarriers and converted into a
+time-domain waveform using the Inverse Fast Fourier Transform (IFFT).
+
+The transmitted OFDM signal can be expressed as:
+
+\begin{equation}
+x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k] e^{j2\pi kn/N}
+\end{equation}
+
+where:
+
+\begin{itemize}
+    \item $X[k]$ is the symbol mapped onto the $k$-th subcarrier
+    \item $N$ is the total number of subcarriers
+    \item $x[n]$ is the transmitted time-domain sample
+\end{itemize}
+
+A Cyclic Prefix (CP) is commonly inserted before transmission to mitigate
+inter-symbol interference caused by multipath channels.
+
+The main advantages of OFDM are:
+
+\begin{itemize}
+    \item High spectral efficiency
+    \item Simple frequency-domain equalization
+    \item Robustness against multipath fading
+\end{itemize}
+
+However, OFDM suffers from high Peak-to-Average Power Ratio (PAPR).
+
+%============================================================%
+\subsection{Single-Carrier Frequency Division Multiple Access (SC-FDMA)}
+
+SC-FDMA can be viewed as a DFT-precoded OFDM system. Before subcarrier
+mapping, the modulated data symbols are transformed by a Discrete Fourier
+Transform (DFT), which spreads each symbol across the allocated
+subcarriers.
+
+Its basic transmitter chain is:
+
+\begin{center}
+Bits $\rightarrow$ QAM $\rightarrow$ DFT $\rightarrow$
+Subcarrier Mapping $\rightarrow$ IFFT $\rightarrow$ CP
+\end{center}
+
+At the receiver, inverse operations are applied:
+
+\begin{center}
+Remove CP $\rightarrow$ FFT $\rightarrow$
+Subcarrier Demapping $\rightarrow$ IDFT $\rightarrow$ Detection
+\end{center}
+
+Because of the DFT spreading operation, SC-FDMA exhibits a waveform with
+single-carrier characteristics and lower PAPR than OFDM.
+
+This is the main reason why SC-FDMA was adopted for LTE uplink systems.
+
+%============================================================%
+\subsection{Orthogonality of Subcarriers}
+
+The key principle behind OFDM is orthogonality. Subcarriers are spaced so
+that they overlap in the frequency domain while remaining separable at the
+receiver.
+
+For two different subcarriers $k$ and $m$:
+
+\begin{equation}
+\int_{0}^{T}
+e^{j2\pi(f_k-f_m)t}dt = 0
+\qquad k \neq m
+\end{equation}
+
+This property allows efficient spectrum usage without mutual interference
+under ideal synchronization conditions.
+
+%============================================================%
+\subsection{Peak-to-Average Power Ratio (PAPR)}
+
+PAPR measures how large the signal peaks are relative to its average
+power. It is defined as:
+
+\begin{equation}
+\mathrm{PAPR}
+=
+\frac{\max |x[n]|^2}{E\{|x[n]|^2\}}
+\end{equation}
+
+High PAPR causes practical power amplifiers to operate inefficiently or
+introduce nonlinear distortion.
+
+In OFDM, many independently phased subcarriers may add constructively,
+creating large instantaneous peaks. SC-FDMA reduces this effect through
+DFT spreading.
+
+%============================================================%
+\subsection{Bit Error Rate (BER)}
+
+Bit Error Rate is one of the most common metrics for evaluating digital
+communication systems. It is defined as:
+
+\begin{equation}
+\mathrm{BER}
+=
+\frac{\text{Number of erroneous bits}}
+{\text{Total transmitted bits}}
+\end{equation}
+
+Lower BER indicates more reliable communication performance.
+
+In this report, BER performance under different Signal-to-Noise Ratio
+(SNR) conditions will be used to compare OFDM and SC-FDMA.
+
+%============================================================%
+\subsection{Comparison Summary}
+
+\begin{table}[H]
+\centering
+\caption{Comparison between OFDM and SC-FDMA}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|
+>{\centering\arraybackslash}X|
+>{\centering\arraybackslash}X|}
+\hline
+\textbf{Criterion} & \textbf{OFDM} & \textbf{SC-FDMA} \\ \hline
+Transmission Type & Multicarrier & Single-carrier-like \\ \hline
+PAPR & High & Low \\ \hline
+Equalization & Simple & Simple \\ \hline
+Complexity & Lower & Slightly Higher \\ \hline
+LTE Usage & Downlink & Uplink \\ \hline
+\end{tabularx}
+\end{table}
+
+%============================================================%
+\subsection{Chapter Summary}
+
+This chapter presented the operating principles of OFDM and SC-FDMA,
+their mathematical foundations, and the key performance metrics used in
+this study. The next chapter will implement both systems in simulation
+and compare their BER and PAPR characteristics.

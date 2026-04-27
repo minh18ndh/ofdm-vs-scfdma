@@ -1,0 +1,100 @@
+\section*{CHAPTER 4. CONCLUSION}
+\addcontentsline{toc}{section}{\numberline{}CHAPTER 4. CONCLUSION}
+
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+
+%============================================================%
+\subsection{Summary of the Study}
+
+This report presented a comparative study between Orthogonal Frequency
+Division Multiplexing (OFDM) and Single-Carrier Frequency Division
+Multiple Access (SC-FDMA), two important transmission techniques used in
+modern wireless communication systems.
+
+Theoretical analysis showed that OFDM offers high spectral efficiency,
+simple frequency-domain equalization, and strong robustness against
+multipath fading. These advantages explain why OFDM has been widely
+adopted in broadband wireless standards.
+
+However, OFDM also suffers from high Peak-to-Average Power Ratio (PAPR),
+which reduces power amplifier efficiency and increases the risk of
+nonlinear distortion.
+
+To address this limitation, SC-FDMA introduces a DFT precoding stage
+before OFDM modulation. This preserves many OFDM advantages while
+producing a lower-PAPR waveform with single-carrier characteristics.
+
+%============================================================%
+\subsection{Main Findings}
+
+Based on theoretical discussion and simulation framework, the main
+findings can be summarized as follows:
+
+\begin{itemize}
+    \item OFDM and SC-FDMA can achieve similar Bit Error Rate (BER)
+    performance under identical modulation and channel conditions.
+
+    \item SC-FDMA provides significantly lower PAPR than OFDM.
+
+    \item Lower PAPR improves transmitter power efficiency and is highly
+    beneficial for battery-powered mobile devices.
+
+    \item This is the main reason SC-FDMA was selected for LTE uplink,
+    while OFDM remained suitable for downlink transmission.
+\end{itemize}
+
+%============================================================%
+\subsection{Practical Implications}
+
+The comparison demonstrates that communication system design always
+involves tradeoffs. OFDM emphasizes implementation simplicity and
+multicarrier flexibility, whereas SC-FDMA improves power efficiency at
+the transmitter.
+
+Therefore, the preferred scheme depends on application requirements:
+
+\begin{itemize}
+    \item Base stations with less strict power constraints may favor OFDM.
+    \item Mobile user equipment benefits from SC-FDMA.
+    \item Future systems may combine advantages of both techniques.
+\end{itemize}
+
+%============================================================%
+\subsection{Limitations of This Report}
+
+Several simplifications were adopted in this study:
+
+\begin{itemize}
+    \item Only basic AWGN channel assumptions were considered.
+    \item Channel coding effects were not included.
+    \item Synchronization errors and hardware nonlinearities were not modeled.
+    \item Simulation parameters were simplified for educational purposes.
+\end{itemize}
+
+More advanced models may produce deeper practical insights.
+
+%============================================================%
+\subsection{Future Work}
+
+Possible future extensions include:
+
+\begin{itemize}
+    \item Comparison under Rayleigh and frequency-selective fading channels.
+    \item Inclusion of channel coding schemes.
+    \item Analysis of computational complexity.
+    \item Investigation of PAPR reduction techniques for OFDM.
+    \item Comparison with newer waveforms for 5G and beyond systems.
+\end{itemize}
+
+%============================================================%
+\subsection{Final Remark}
+
+OFDM and SC-FDMA are both elegant solutions to the challenge of reliable
+high-speed wireless transmission. Their comparison illustrates a central
+engineering principle: every improvement solves one problem while often
+creating another. The best design is therefore not universal, but
+context-dependent.

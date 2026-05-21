@@ -1,0 +1,197 @@
+\section*{CHAPTER 4. CONCLUSION}
+\addcontentsline{toc}{section}{\numberline{}CHAPTER 4. CONCLUSION}
+
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+
+%============================================================%
+\subsection{Summary of the Study}
+
+This report presented a comparative study between Orthogonal Frequency
+Division Multiplexing (OFDM) and Single-Carrier Frequency Division Multiple
+Access (SC-FDMA), with emphasis on their Bit Error Rate (BER) performance
+and Peak-to-Average Power Ratio (PAPR) characteristics.
+
+Both transmission schemes were implemented in MATLAB under identical
+simulation conditions, including:
+
+\begin{itemize}
+    \item 16-QAM modulation
+    \item FFT size of 64
+    \item 16 active subcarriers
+    \item Cyclic Prefix length of 16
+    \item Multipath Rayleigh fading channel
+    \item Zero-Forcing frequency-domain equalization
+\end{itemize}
+
+A large-scale Monte Carlo simulation consisting of 200,000 transmitted
+blocks was performed to ensure statistically reliable BER and PAPR
+measurements.
+
+%============================================================%
+\subsection{Discussion of BER Performance}
+
+Simulation results showed that both OFDM and SC-FDMA achieved reliable
+communication performance over the multipath fading channel.
+
+At low SNR values, OFDM demonstrated slightly better BER performance than
+SC-FDMA. However, as the SNR increased, SC-FDMA gradually outperformed
+OFDM and achieved lower BER at medium and high SNR regions.
+
+This behavior can be explained by the DFT spreading operation used in
+SC-FDMA. Since transmitted symbols are distributed across multiple
+subcarriers, the system becomes more robust against severe fading on
+individual subcarriers.
+
+For example:
+
+\begin{itemize}
+    \item At 0 dB SNR:
+    \[
+    \mathrm{BER}_{\mathrm{OFDM}} = 1.859452 \times 10^{-1}
+    \]
+    
+    \[
+    \mathrm{BER}_{\mathrm{SC-FDMA}} = 2.249893 \times 10^{-1}
+    \]
+
+    \item At 20 dB SNR:
+    \[
+    \mathrm{BER}_{\mathrm{OFDM}} = 2.992188 \times 10^{-5}
+    \]
+
+    \[
+    \mathrm{BER}_{\mathrm{SC-FDMA}} = 0
+    \]
+\end{itemize}
+
+The BER curves also showed the expected monotonic improvement as SNR
+increased, indicating that the system implementation and equalization
+process operated correctly.
+
+%============================================================%
+\subsection{Discussion of PAPR Performance}
+
+The PAPR analysis demonstrated one of the most important advantages of
+SC-FDMA over OFDM.
+
+The average measured PAPR values were:
+
+\begin{equation}
+\mathrm{PAPR}_{\mathrm{OFDM}} = 6.0139 \ \mathrm{dB}
+\end{equation}
+
+\begin{equation}
+\mathrm{PAPR}_{\mathrm{SC-FDMA}} = 4.8222 \ \mathrm{dB}
+\end{equation}
+
+Therefore, SC-FDMA achieved approximately:
+
+\begin{equation}
+\Delta \mathrm{PAPR}
+=
+6.0139 - 4.8222
+=
+1.19 \ \mathrm{dB}
+\end{equation}
+
+of average PAPR reduction compared to OFDM.
+
+The CCDF curves further confirmed that OFDM experiences significantly
+higher probabilities of large instantaneous power peaks.
+
+For example, at a PAPR threshold near 8 dB:
+
+\begin{itemize}
+    \item OFDM still exhibited noticeable probability of occurrence
+    \item SC-FDMA probability had already approached zero
+\end{itemize}
+
+This lower PAPR property is highly important in practical wireless
+transmitters because it improves power amplifier efficiency and reduces
+nonlinear distortion.
+
+%============================================================%
+\subsection{Engineering Implications}
+
+The results explain why OFDM and SC-FDMA are used differently in practical
+cellular systems.
+
+OFDM is highly suitable for downlink transmission because base stations
+have:
+
+\begin{itemize}
+    \item Large power budgets
+    \item More sophisticated hardware
+    \item Less stringent amplifier efficiency constraints
+\end{itemize}
+
+In contrast, uplink mobile devices operate under limited battery capacity.
+Therefore, reducing PAPR becomes critically important.
+
+SC-FDMA preserves many OFDM advantages such as:
+
+\begin{itemize}
+    \item Frequency-domain equalization
+    \item Robustness against multipath fading
+    \item Flexible subcarrier allocation
+\end{itemize}
+
+while simultaneously improving transmitter power efficiency through its
+single-carrier-like waveform characteristics.
+
+This is the primary reason why SC-FDMA was selected for LTE uplink
+transmission systems.
+
+%============================================================%
+\subsection{Limitations of the Study}
+
+Although the implemented simulation successfully demonstrates the
+fundamental differences between OFDM and SC-FDMA, several simplifying
+assumptions were made:
+
+\begin{itemize}
+    \item Perfect synchronization was assumed
+    \item Perfect channel estimation was assumed
+    \item Only localized SC-FDMA mapping was considered
+    \item A fixed modulation order (16-QAM) was used
+    \item Nonlinear power amplifier effects were not modeled
+\end{itemize}
+
+In practical communication systems, these factors may further influence
+system performance.
+
+%============================================================%
+\subsection{Future Work}
+
+Several possible extensions can be explored in future studies:
+
+\begin{itemize}
+    \item Comparison between Localized and Interleaved SC-FDMA
+    \item Investigation of higher-order modulation schemes
+    \item Analysis under imperfect channel estimation
+    \item Evaluation with nonlinear power amplifier models
+    \item Comparison under realistic LTE or 5G numerologies
+    \item Study of spectral efficiency and computational complexity
+\end{itemize}
+
+%============================================================%
+\subsection{Final Remarks}
+
+In conclusion, this study demonstrated the fundamental tradeoff between
+OFDM and SC-FDMA.
+
+OFDM provides excellent spectral efficiency and implementation simplicity,
+but suffers from high PAPR due to the superposition of many independently
+modulated subcarriers.
+
+SC-FDMA mitigates this problem through DFT spreading, producing lower PAPR
+and improved transmitter efficiency while retaining most OFDM advantages.
+
+The simulation results verified that SC-FDMA achieves significantly lower
+PAPR while maintaining competitive BER performance under multipath fading
+conditions. These characteristics make SC-FDMA highly suitable for uplink
+wireless communication systems where power efficiency is critical.

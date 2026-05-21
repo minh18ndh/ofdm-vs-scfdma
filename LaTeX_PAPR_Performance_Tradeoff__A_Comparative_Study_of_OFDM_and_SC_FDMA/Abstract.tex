@@ -1,0 +1,37 @@
+\section*{ABSTRACT}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}ABSTRACT}
+
+This report presents a comparative study of Orthogonal Frequency Division
+Multiplexing (OFDM) and Single-Carrier Frequency Division Multiple Access
+(SC-FDMA), two important multicarrier transmission techniques widely used
+in modern wireless communication systems. OFDM is well known for its high
+spectral efficiency, robustness against multipath fading, and efficient
+frequency-domain equalization. However, one major limitation of OFDM is
+its high Peak-to-Average Power Ratio (PAPR), which reduces power amplifier
+efficiency and introduces nonlinear distortion in practical transmission
+systems.
+
+SC-FDMA was introduced to address the high-PAPR problem of OFDM by
+applying a Discrete Fourier Transform (DFT) spreading stage prior to OFDM
+modulation. This additional precoding operation allows SC-FDMA to retain
+many advantages of OFDM while exhibiting single-carrier-like transmission
+characteristics and lower PAPR. Consequently, SC-FDMA is more suitable for
+uplink communication in battery-powered mobile devices, where transmitter
+power efficiency is critical.
+
+In this study, the operating principles of OFDM and SC-FDMA are analyzed
+theoretically and evaluated through MATLAB-based simulations. The systems
+are implemented using 16-QAM modulation over multipath Rayleigh fading
+channels with Zero Forcing (ZF) equalization. Performance evaluation is
+conducted using Bit Error Rate (BER) and Complementary Cumulative
+Distribution Function (CCDF) analysis of PAPR. Simulation results show
+that both systems achieve comparable BER performance under identical
+channel conditions, while SC-FDMA demonstrates significantly lower PAPR
+than OFDM.
+
+The results highlight the tradeoff between transmission performance and
+power efficiency, and explain the practical adoption of OFDM in downlink
+systems and SC-FDMA in LTE uplink communications.
+
+\newpage
+\clearpage

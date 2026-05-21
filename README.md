@@ -6,7 +6,7 @@ This repository contains the MATLAB simulation source code, LaTeX source files, 
 
 ---
 
-# Quick Access to the Final Report (PDF)
+# Access to the Final Report (PDF)
 
 ## Option 1 — Direct Google Drive PDF Link
 The compiled report PDF can be accessed immediately here:
@@ -23,7 +23,7 @@ The repository contains:
 - MATLAB simulation source code
 - LaTeX source files
 - Generated figures and plots
-- Final report assets
+- Final report PDF
 
 Repository link:
 

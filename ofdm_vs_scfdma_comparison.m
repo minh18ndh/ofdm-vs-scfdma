@@ -21,7 +21,7 @@ cpLen  = 16;          % Cyclic prefix length
 M      = 16;          % 16-QAM
 k      = log2(M);
 
-numBlk = 20000;
+numBlk = 200000;
 SNRdB  = 0:1:20;
 
 BER_ofdm   = zeros(size(SNRdB));
@@ -92,7 +92,7 @@ for ii = 1:length(SNRdB)
 
     for n = 1:numBlk
 
-        if mod(n,10000)==0
+        if mod(n,100000)==0
             fprintf('SNR = %2d dB | Processing block %d / %d\n', ...
                 SNRdB(ii), n, numBlk);
         end

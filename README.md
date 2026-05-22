@@ -12,7 +12,7 @@ This repository contains the MATLAB simulation source code, LaTeX source files, 
 The compiled report PDF can be accessed immediately here:
 
 📄 **Report PDF:**  
-https://drive.google.com/file/d/1LHyuwdiO3gdd_T51DHZDV9eI8FMNeoC2/view?usp=drive_link
+[https://drive.google.com/file/d/1MJBQCG88gk07JQIXVWni1Wk81YaHqJfN/view?usp=sharing](https://drive.google.com/file/d/1MJBQCG88gk07JQIXVWni1Wk81YaHqJfN/view?usp=sharing)
 
 ---
 
